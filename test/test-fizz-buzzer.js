@@ -3,18 +3,12 @@ const fizzBuzzer = require('../fizzBuzzer');
 
 describe('fizzBuzzer', function() {
     it('should return error if input is not a number', function() {
-        const normalCase = [1, 45, 78, 3, 90];
-        normalCase.forEach(function (input) {
-            expect(function() {
-                fizzBuzzer(input);
-            }).to.not.throw(Error);
-        });
-        const errorCase = ['1', false, null, undefined, {an: 'object'}, [1, 2, 3]];
-        errorCase.forEach(function (input) {
-            expect(function() {
-                fizzBuzzer(input);
-            }).to.throw(Error);
-        });
+       const errorCase = ['1', false, null, undefined, {an: 'object'}, [1, 2, 3]];
+      errorCase.forEach(function (input) {
+         expect(function() {
+           fizzBuzzer(input);
+         }).to.throw(Error);
+      });
     });
 
   it('should return fizz-buzz if the input is divisible by 15', function() {
@@ -22,12 +16,6 @@ describe('fizzBuzzer', function() {
     normalCases.forEach(function(input) {
       const answer = fizzBuzzer(input);
       expect(answer).to.equal('fizz-buzz');
-    });
-
-    const falseCases = [12, 344, 65, 54];
-    falseCases.forEach(function(input) {
-      const answer = fizzBuzzer(input);
-      expect(answer).to.not.equal('fizz-buzz');
     });
   });
 
@@ -38,12 +26,7 @@ describe('fizzBuzzer', function() {
       expect(answer).to.equal('buzz');
     });
 
-    const falseCases = [12, 344, 62, 54];
-    falseCases.forEach(function(input) {
-      const answer = fizzBuzzer(input);
-      expect(answer).to.not.equal('buzz');
-    });
-  });
+   });
 
   it('should return fizz if the input is divisible by 3', function() {
     const normalCases = [9, 12, 48, 93];
@@ -52,12 +35,7 @@ describe('fizzBuzzer', function() {
       expect(answer).to.equal('fizz');
     });
 
-    const falseCases = [13, 344, 65, 55];
-    falseCases.forEach(function(input) {
-      const answer = fizzBuzzer(input);
-      expect(answer).to.not.equal('fizz');
-    });
-  });
+   });
 
   it('should return input if the input is not divisible by 3 or 5', function() {
     const normalCases = [2, 31, 47, 97];
@@ -66,10 +44,5 @@ describe('fizzBuzzer', function() {
       expect(answer).to.equal(input);
     });
 
-    const falseCases = [12, 444, 65, 90];
-    falseCases.forEach(function(input) {
-      const answer = fizzBuzzer(input);
-      expect(answer).to.not.equal(input);
-    });
-  });
+       });
 });
