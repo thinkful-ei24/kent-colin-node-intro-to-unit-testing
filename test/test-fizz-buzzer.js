@@ -2,6 +2,21 @@ const expect = require('chai').expect;
 const fizzBuzzer = require('../fizzBuzzer');
 
 describe('fizzBuzzer', function() {
+    it('should return error if input is not a number', function() {
+        const normalCase = [1, 45, 78, 3, 90];
+        normalCase.forEach(function (input) {
+            expect(function() {
+                fizzBuzzer(input);
+            }).to.not.throw(Error);
+        });
+        const errorCase = ['1', false, null, undefined, {an: 'object'}, [1, 2, 3]];
+        errorCase.forEach(function (input) {
+            expect(function() {
+                fizzBuzzer(input);
+            }).to.throw(Error);
+        });
+    });
+
   it('should return fizz-buzz if the input is divisible by 15', function() {
     const normalCases = [15, 30, 45, 90];
     normalCases.forEach(function(input) {
